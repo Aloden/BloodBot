@@ -5,7 +5,6 @@ const fs = require('fs');
 const client = new Discord.Client();
 const config = require('./config.json');
 
-client.messages = messages;
 client.config = config;
 
 client.xp = new Enmap({name: 'xp'})

@@ -1,3 +1,3 @@
-module.exports.run = async(client, message, args) => {
+module.exports = (client, message, args) => {
   console.log('Ready!')
 }

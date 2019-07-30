@@ -18,6 +18,7 @@
   "homepage": "https://github.com/Aloden/BloodLust#readme",
   "dependencies": {
     "better-sqlite3": "^5.4.1",
+    "canvas": "^2.5.0",
     "discord.js": "^11.5.1",
     "enmap": "^5.1.0",
     "fs": "0.0.1-security",
