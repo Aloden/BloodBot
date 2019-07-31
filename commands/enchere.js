@@ -1,5 +1,5 @@
 module.exports.run = async(client, message, args) => {
-  console
+  console.log(args)
   const Discord = require('discord.js')
   const ms = require('ms')
   const key = message.author.id
@@ -19,10 +19,10 @@ module.exports.run = async(client, message, args) => {
     enchereurActuel: enchereurActuel,
     vendeur: message.author.username
   })
-  client.enchere.set(key, temp, temp)
-  client.enchere.set(key, recompense, recompense)
-  client.enchere.set(key, prixActuel, prixActuel)
-  client.enchere.set(key, enchereurActuel, enchereurActuel)
+//  client.enchere.set(key, temp, temp)
+//  client.enchere.set(key, recompense, recompense)
+//  client.enchere.set(key, prixActuel, prixActuel)
+// client.enchere.set(key, enchereurActuel, enchereurActuel)
 
   const enchereChannel = message.guild.channels.find(c => c.name === 'encheres')
   let embed = new Discord.RichEmbed()
@@ -46,9 +46,9 @@ module.exports.run = async(client, message, args) => {
     console.log(key)
     let newEmbed = new Discord.RichEmbed()
       .setTitle('Une nouvelle enchère a commencer!')
-      .addField('Objet a enchérir:', client.enchere.get(key, recompense))
+      .addField('Objet a enchérir:', client.enchere.get(key, 'recompense'))
       .addField('Durée restante de l\'enchère', shownTime + ' secondes')
-      .addField('Prix actuel:', client.enchere.get(key, prixActuel))
+      .addField('Prix actuel:', client.enchere.get(key, 'prixActuel'))
       .addField('Enchériseur actuel:', 'Personne n\'a encore sur-enchérie sur cette enchère...')
       .addField('Vendeur:', message.author.username)
       .setThumbnail(message.author.avatarURL)
@@ -57,9 +57,9 @@ module.exports.run = async(client, message, args) => {
     if(newTime < 1) {
       let finitEmbed = new Discord.RichEmbed()
         .setTitle('Cette enchère est terminée!')
-        .addField('Objet:', client.enchere.get(key, recompense))
-        .addField('Gagnant', client.enchere.get(key, enchereurActuel))
-        .addField('Prix:', client.enchere.get(key, prixActuel))
+        .addField('Objet:', client.enchere.get(key, 'recompense'))
+        .addField('Gagnant', client.enchere.get(key, 'enchereurActuel'))
+        .addField('Prix:', client.enchere.get(key, 'prixActuel'))
         .addField('Vendeur:', message.author.username)
         .setThumbnail(message.author.avatarURL)
         .setFooter(key)
@@ -69,7 +69,5 @@ module.exports.run = async(client, message, args) => {
       
     }
   }
-  setInterval(intervalFunc, 2000).catch((error) => {
-    console.log(error)
-  })
+  setInterval(intervalFunc, 2000)
 }

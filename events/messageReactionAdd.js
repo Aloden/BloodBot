@@ -141,7 +141,7 @@ module.exports = async(client, messageReaction, user) => {
     if(messageReaction.emoji.id === '605812831245434910') {
       const oldPrix = parseInt(client.enchere.get(key, prixActuel))
       const newPrix = oldPrix + 500
-      client.enchere.set(key, prixActuel, newPrix)
+      client.enchere.set(key, newPrix, 'prixActuel')
     }
   }
 }
