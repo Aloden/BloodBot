@@ -1,8 +1,9 @@
 module.exports = async(client, messageReaction, user) => {
   const Discord = require('discord.js')
+  const Enmap = require('enmap')
   const message = messageReaction.message
   //Salon pour creer les tickets
-  if('xx' === 'xx') {
+  if(message.channel.id === '605081461162377243') {
     if(messageReaction.emoji.name === '💳') { 
       messageReaction.remove(user.id)
       console.log(message.guild.channels.some(c => c.name === `${user.username}-candidature-vendeur`))
@@ -132,6 +133,17 @@ module.exports = async(client, messageReaction, user) => {
         await dejam.delete(5000)
       }
       
+    }
+  } else if(message.channel.id === '605782015547015168') {
+    const vendeur = message.guild.fetchMember(message.embeds[0].footer.text)
+    //const key = vendeur.id
+    if(user.bot) return;
+    const key = 1
+    //+500
+    if(messageReaction.emoji.id === '605812831245434910') {
+      const oldPrix = parseInt(client.enchere.get(key, prixActuel))
+      const newPrix = oldPrix + 500
+      client.enchere.set(key, prixActuel, newPrix)
     }
   }
 }

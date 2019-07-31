@@ -8,6 +8,7 @@ const config = require('./config.json');
 client.config = config;
 
 client.xp = new Enmap({name: 'xp'})
+client.enchere = new Enmap({name: 'enchere'})
 
 fs.readdir('./level/', (err, files) => {
   if (err) return console.error(err);
