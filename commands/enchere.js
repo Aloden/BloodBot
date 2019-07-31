@@ -2,8 +2,7 @@ module.exports.run = async(client, message, args) => {
   console
   const Discord = require('discord.js')
   const ms = require('ms')
-  //const key = message.author.id
-  const key = 1
+  const key = message.author.id
   if(!message.member.roles.find(r => r.name === '📥 Vendeur Confirmer')) return message.channel.send('Vous n\'avez pas la permission d\'executer cette commande.')
   let temp = ms(args[0])
   if(!temp) return message.channel.send('Vous devez precisez une duré pour l\'enchère')

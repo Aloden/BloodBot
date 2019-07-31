@@ -135,10 +135,8 @@ module.exports = async(client, messageReaction, user) => {
       
     }
   } else if(message.channel.id === '605782015547015168') {
-    const vendeur = message.guild.fetchMember(message.embeds[0].footer.text)
-    //const key = vendeur.id
+    const key = message.embeds[0].footer.text
     if(user.bot) return;
-    const key = 1
     //+500
     if(messageReaction.emoji.id === '605812831245434910') {
       const oldPrix = parseInt(client.enchere.get(key, prixActuel))
